@@ -1,0 +1,19 @@
+/* 
+  FZZImagePickerKitLocalizable.strings
+  FZZImagePickerKit
+
+  Created by Administrator on 2016/03/06.
+  Copyright © 2016年 Shota Nakagami. All rights reserved.
+*/
+
+"Error" = "エラー";
+"Open Settings" = "設定画面を開く";
+"This device has no camera." = "この機種にはカメラがありません";
+
+"%@ does not have access to your photos." = "「設定」アプリでの設定のため、%@は写真にアクセスできません";
+"Please enable access to your photos in " = "以下の操作により設定を変更できます。";
+"iOS Settings > %@ > Privacy > Photos" = "ホーム画面から「設定」アプリを起動 > %@を選択 > プライバシーを選択 > 写真";
+
+"%@ does not have access to your camera." = "「設定」アプリでの設定のため、%@はカメラにアクセスできません";
+"Please enable access to your camera in " = "以下の操作により設定を変更できます。";
+"iOS Settings > %@ > Privacy > Camera" = "ホーム画面から「設定」アプリを起動 > %@を選択 > プライバシーを選択 > カメラ";

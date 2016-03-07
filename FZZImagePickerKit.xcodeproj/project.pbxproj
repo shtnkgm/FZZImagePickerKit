@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C36069DF1C8C6FEF0046D78D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C36069DE1C8C6FEF0046D78D /* main.m */; };
+		C36069E21C8C6FEF0046D78D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C36069E11C8C6FEF0046D78D /* AppDelegate.m */; };
+		C36069E51C8C6FEF0046D78D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C36069E41C8C6FEF0046D78D /* ViewController.m */; };
+		C36069E81C8C6FEF0046D78D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36069E61C8C6FEF0046D78D /* Main.storyboard */; };
+		C36069EA1C8C6FEF0046D78D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36069E91C8C6FEF0046D78D /* Assets.xcassets */; };
+		C36069ED1C8C6FEF0046D78D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36069EB1C8C6FEF0046D78D /* LaunchScreen.storyboard */; };
+		C36069F61C8C77910046D78D /* FZZImagePickerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C36069F51C8C77910046D78D /* FZZImagePickerKit.m */; };
+		C36069FB1C8C78C00046D78D /* NSString+FZZImagePickerKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = C36069FA1C8C78C00046D78D /* NSString+FZZImagePickerKitLocalized.m */; };
+		C3606A001C8C79530046D78D /* FZZImagePickerKitLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3606A021C8C79530046D78D /* FZZImagePickerKitLocalizable.strings */; };
+		D6E2E4D5857D6FCF5E9CF7D0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F44F7EFBC6A4CDF1C8832E0 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08AE6BC82D97DF919B1821BC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		0F44F7EFBC6A4CDF1C8832E0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		19B993A35899559C74E3E010 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C36069DA1C8C6FEF0046D78D /* FZZImagePickerKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FZZImagePickerKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C36069DE1C8C6FEF0046D78D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C36069E01C8C6FEF0046D78D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C36069E11C8C6FEF0046D78D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C36069E31C8C6FEF0046D78D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C36069E41C8C6FEF0046D78D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C36069E71C8C6FEF0046D78D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C36069E91C8C6FEF0046D78D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C36069EC1C8C6FEF0046D78D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C36069EE1C8C6FEF0046D78D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C36069F41C8C77910046D78D /* FZZImagePickerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZZImagePickerKit.h; sourceTree = "<group>"; };
+		C36069F51C8C77910046D78D /* FZZImagePickerKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZZImagePickerKit.m; sourceTree = "<group>"; };
+		C36069F71C8C78A50046D78D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		C36069F81C8C78A50046D78D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C36069F91C8C78C00046D78D /* NSString+FZZImagePickerKitLocalized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FZZImagePickerKitLocalized.h"; sourceTree = "<group>"; };
+		C36069FA1C8C78C00046D78D /* NSString+FZZImagePickerKitLocalized.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FZZImagePickerKitLocalized.m"; sourceTree = "<group>"; };
+		C3606A011C8C79530046D78D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/FZZImagePickerKitLocalizable.strings; sourceTree = "<group>"; };
+		C3606A031C8C79570046D78D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FZZImagePickerKitLocalizable.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C36069D71C8C6FEF0046D78D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E2E4D5857D6FCF5E9CF7D0 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13273E6840C550BAD3414510 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				08AE6BC82D97DF919B1821BC /* Pods.debug.xcconfig */,
+				19B993A35899559C74E3E010 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		168BD9BD0D8BA07F98DB38CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F44F7EFBC6A4CDF1C8832E0 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C36069D11C8C6FEF0046D78D = {
+			isa = PBXGroup;
+			children = (
+				C36069DC1C8C6FEF0046D78D /* FZZImagePickerKit */,
+				C36069DB1C8C6FEF0046D78D /* Products */,
+				13273E6840C550BAD3414510 /* Pods */,
+				168BD9BD0D8BA07F98DB38CA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C36069DB1C8C6FEF0046D78D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C36069DA1C8C6FEF0046D78D /* FZZImagePickerKit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C36069DC1C8C6FEF0046D78D /* FZZImagePickerKit */ = {
+			isa = PBXGroup;
+			children = (
+				C36069F41C8C77910046D78D /* FZZImagePickerKit.h */,
+				C36069F51C8C77910046D78D /* FZZImagePickerKit.m */,
+				C36069F91C8C78C00046D78D /* NSString+FZZImagePickerKitLocalized.h */,
+				C36069FA1C8C78C00046D78D /* NSString+FZZImagePickerKitLocalized.m */,
+				C3606A021C8C79530046D78D /* FZZImagePickerKitLocalizable.strings */,
+				C36069E01C8C6FEF0046D78D /* AppDelegate.h */,
+				C36069E11C8C6FEF0046D78D /* AppDelegate.m */,
+				C36069E31C8C6FEF0046D78D /* ViewController.h */,
+				C36069E41C8C6FEF0046D78D /* ViewController.m */,
+				C36069E61C8C6FEF0046D78D /* Main.storyboard */,
+				C36069E91C8C6FEF0046D78D /* Assets.xcassets */,
+				C36069EB1C8C6FEF0046D78D /* LaunchScreen.storyboard */,
+				C36069EE1C8C6FEF0046D78D /* Info.plist */,
+				C36069DD1C8C6FEF0046D78D /* Supporting Files */,
+			);
+			path = FZZImagePickerKit;
+			sourceTree = "<group>";
+		};
+		C36069DD1C8C6FEF0046D78D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C36069DE1C8C6FEF0046D78D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C36069D91C8C6FEF0046D78D /* FZZImagePickerKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C36069F11C8C6FEF0046D78D /* Build configuration list for PBXNativeTarget "FZZImagePickerKit" */;
+			buildPhases = (
+				AAFA4F1F31069019555136E6 /* Check Pods Manifest.lock */,
+				C36069D61C8C6FEF0046D78D /* Sources */,
+				C36069D71C8C6FEF0046D78D /* Frameworks */,
+				C36069D81C8C6FEF0046D78D /* Resources */,
+				04C91BA07F76BA00D393479A /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FZZImagePickerKit;
+			productName = FZZImagePickerKit;
+			productReference = C36069DA1C8C6FEF0046D78D /* FZZImagePickerKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C36069D21C8C6FEF0046D78D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Shota Nakagami";
+				TargetAttributes = {
+					C36069D91C8C6FEF0046D78D = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = C36069D51C8C6FEF0046D78D /* Build configuration list for PBXProject "FZZImagePickerKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C36069D11C8C6FEF0046D78D;
+			productRefGroup = C36069DB1C8C6FEF0046D78D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C36069D91C8C6FEF0046D78D /* FZZImagePickerKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C36069D81C8C6FEF0046D78D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C36069ED1C8C6FEF0046D78D /* LaunchScreen.storyboard in Resources */,
+				C3606A001C8C79530046D78D /* FZZImagePickerKitLocalizable.strings in Resources */,
+				C36069EA1C8C6FEF0046D78D /* Assets.xcassets in Resources */,
+				C36069E81C8C6FEF0046D78D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04C91BA07F76BA00D393479A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAFA4F1F31069019555136E6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C36069D61C8C6FEF0046D78D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C36069E51C8C6FEF0046D78D /* ViewController.m in Sources */,
+				C36069F61C8C77910046D78D /* FZZImagePickerKit.m in Sources */,
+				C36069E21C8C6FEF0046D78D /* AppDelegate.m in Sources */,
+				C36069DF1C8C6FEF0046D78D /* main.m in Sources */,
+				C36069FB1C8C78C00046D78D /* NSString+FZZImagePickerKitLocalized.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C36069E61C8C6FEF0046D78D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C36069E71C8C6FEF0046D78D /* Base */,
+				C36069F71C8C78A50046D78D /* ja */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C36069EB1C8C6FEF0046D78D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C36069EC1C8C6FEF0046D78D /* Base */,
+				C36069F81C8C78A50046D78D /* ja */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C3606A021C8C79530046D78D /* FZZImagePickerKitLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3606A011C8C79530046D78D /* ja */,
+				C3606A031C8C79570046D78D /* en */,
+			);
+			name = FZZImagePickerKitLocalizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C36069EF1C8C6FEF0046D78D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C36069F01C8C6FEF0046D78D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C36069F21C8C6FEF0046D78D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08AE6BC82D97DF919B1821BC /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FZZImagePickerKit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shotanakagami.FZZImagePickerKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C36069F31C8C6FEF0046D78D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19B993A35899559C74E3E010 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FZZImagePickerKit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shotanakagami.FZZImagePickerKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C36069D51C8C6FEF0046D78D /* Build configuration list for PBXProject "FZZImagePickerKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C36069EF1C8C6FEF0046D78D /* Debug */,
+				C36069F01C8C6FEF0046D78D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C36069F11C8C6FEF0046D78D /* Build configuration list for PBXNativeTarget "FZZImagePickerKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C36069F21C8C6FEF0046D78D /* Debug */,
+				C36069F31C8C6FEF0046D78D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C36069D21C8C6FEF0046D78D /* Project object */;
+}
