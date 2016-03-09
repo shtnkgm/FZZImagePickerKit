@@ -15,7 +15,8 @@
 @interface FZZImagePickerKit()
 <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
-@property (nonatomic,strong) UIImagePickerController *picker;
+@property (nonatomic, strong) UIImagePickerController *picker;
+@property (nonatomic, strong) ALAssetsLibrary *assetLibrary;
 @property (nonatomic,copy) NSString *appName;
 
 @end
@@ -196,8 +197,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 -(void) loadImageFromAssertByUrl:(NSURL *)url completion:(void (^)(UIImage*)) completion{
     __weak typeof(self) weakSelf = self;
     
-    ALAssetsLibrary *assetLibrary=[[ALAssetsLibrary alloc] init];
-    [assetLibrary assetForURL:url resultBlock:^(ALAsset *asset) {
+    self.assetLibrary = [ALAssetsLibrary new];
+    [self.assetLibrary assetForURL:url resultBlock:^(ALAsset *asset) {
         ALAssetRepresentation *rep = [asset defaultRepresentation];
         Byte *buffer = (Byte*)malloc((unsigned int)rep.size);
         NSUInteger buffered = [rep getBytes:buffer fromOffset:0.0f length:(unsigned int)rep.size error:nil];
