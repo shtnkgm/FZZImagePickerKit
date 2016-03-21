@@ -38,6 +38,8 @@ typedef enum : NSInteger{
 
 @protocol FZZImagePickerKitDelegate <NSObject>
 
-- (void)FZZImagePickerKit:(FZZImagePickerKit *)imagePickerKit image:(UIImage *)image status:(FZZImagePickerStatus)status;
+- (void)FZZImagePickerKit:(FZZImagePickerKit *)imagePickerKit
+                    image:(UIImage *)image
+                   status:(FZZImagePickerStatus)status;
 
 @end

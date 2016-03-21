@@ -77,12 +77,15 @@
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {}];
+                                                          handler:^(UIAlertAction * action) {
+                                                          //何もしない
+                                                          }];
     
         [alertController addAction:defaultAction];
     
     UIAlertAction* settingAction = [UIAlertAction actionWithTitle:[@"Open Settings" localized] style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {
+                                                              //設定画面を開く
                                                               NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
                                                               [[UIApplication sharedApplication] openURL:url];
                                                           }];
@@ -105,13 +108,17 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
+    
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {}];
+                                                          handler:^(UIAlertAction * action) {
+                                                          //何もしない
+                                                          }];
     
     [alertController addAction:defaultAction];
     
     UIAlertAction* settingAction = [UIAlertAction actionWithTitle:[@"Open Settings" localized] style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {
+                                                              //設定画面を開く
                                                               NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
                                                               [[UIApplication sharedApplication] openURL:url];
                                                           }];
