@@ -11,7 +11,6 @@
 		C36069E21C8C6FEF0046D78D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C36069E11C8C6FEF0046D78D /* AppDelegate.m */; };
 		C36069E51C8C6FEF0046D78D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C36069E41C8C6FEF0046D78D /* ViewController.m */; };
 		C36069E81C8C6FEF0046D78D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36069E61C8C6FEF0046D78D /* Main.storyboard */; };
-		C36069EA1C8C6FEF0046D78D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36069E91C8C6FEF0046D78D /* Assets.xcassets */; };
 		C36069ED1C8C6FEF0046D78D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36069EB1C8C6FEF0046D78D /* LaunchScreen.storyboard */; };
 		C36069F61C8C77910046D78D /* FZZImagePickerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C36069F51C8C77910046D78D /* FZZImagePickerKit.m */; };
 		C36069FB1C8C78C00046D78D /* NSString+FZZImagePickerKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = C36069FA1C8C78C00046D78D /* NSString+FZZImagePickerKitLocalized.m */; };
@@ -30,7 +29,6 @@
 		C36069E31C8C6FEF0046D78D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C36069E41C8C6FEF0046D78D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C36069E71C8C6FEF0046D78D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C36069E91C8C6FEF0046D78D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C36069EC1C8C6FEF0046D78D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C36069EE1C8C6FEF0046D78D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C36069F41C8C77910046D78D /* FZZImagePickerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZZImagePickerKit.h; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 				C36069E31C8C6FEF0046D78D /* ViewController.h */,
 				C36069E41C8C6FEF0046D78D /* ViewController.m */,
 				C36069E61C8C6FEF0046D78D /* Main.storyboard */,
-				C36069E91C8C6FEF0046D78D /* Assets.xcassets */,
 				C36069EB1C8C6FEF0046D78D /* LaunchScreen.storyboard */,
 				C36069EE1C8C6FEF0046D78D /* Info.plist */,
 				C36069DD1C8C6FEF0046D78D /* Supporting Files */,
@@ -131,6 +128,7 @@
 				C36069D71C8C6FEF0046D78D /* Frameworks */,
 				C36069D81C8C6FEF0046D78D /* Resources */,
 				04C91BA07F76BA00D393479A /* Copy Pods Resources */,
+				3898FFF633E07416F6FAB02F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,7 +178,6 @@
 			files = (
 				C36069ED1C8C6FEF0046D78D /* LaunchScreen.storyboard in Resources */,
 				C3606A001C8C79530046D78D /* FZZImagePickerKitLocalizable.strings in Resources */,
-				C36069EA1C8C6FEF0046D78D /* Assets.xcassets in Resources */,
 				C36069E81C8C6FEF0046D78D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +198,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3898FFF633E07416F6FAB02F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AAFA4F1F31069019555136E6 /* Check Pods Manifest.lock */ = {
@@ -350,7 +362,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 08AE6BC82D97DF919B1821BC /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FZZImagePickerKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shotanakagami.FZZImagePickerKit;
@@ -362,7 +373,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19B993A35899559C74E3E010 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FZZImagePickerKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shotanakagami.FZZImagePickerKit;
