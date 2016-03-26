@@ -133,8 +133,10 @@
 }
 
 - (void)openImagePicker:(int)sourceType {
-    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    [SVProgressHUD show];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD show];
+    });
+    
     //イメージピッカーの設定
     _picker = [UIImagePickerController new];
     _picker.delegate = self;
