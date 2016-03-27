@@ -40,7 +40,14 @@
 - (void)openCamera{
     //カメラ有無チェック
     if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        [SVProgressHUD showErrorWithStatus:[@"This device has no camera." localized]];
+        
+        if([NSThread isMainThread]){
+            [SVProgressHUD showErrorWithStatus:[@"This device has no camera." localized]];
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [SVProgressHUD showErrorWithStatus:[@"This device has no camera." localized]];
+            });
+        }
         [_delegate FZZImagePickerKit:self image:nil status:FZZImagePickerStatusFailForNoCamera];
         return;
     }
@@ -149,7 +156,13 @@
     
     //イメージピッカーを表示する
     [(UIViewController *)_delegate presentViewController:_picker animated:YES completion:^{
-        [SVProgressHUD dismiss];
+        if([NSThread isMainThread]){
+            [SVProgressHUD dismiss];
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [SVProgressHUD dismiss];
+            });
+        }
     }];
 }
 
@@ -219,7 +232,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
         UIImage* img = [UIImage imageWithData:data];
         completion(img);
     } failureBlock:^(NSError *err) {
-        [SVProgressHUD showErrorWithStatus:nil];
+        if([NSThread isMainThread]){
+            [SVProgressHUD showErrorWithStatus:nil];
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [SVProgressHUD showErrorWithStatus:nil];
+            });
+        }
         [weakSelf.delegate FZZImagePickerKit:weakSelf image:nil status:FZZImagePickerStatusCancelForALAssetsLibrary];
     }];
 }
