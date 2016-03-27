@@ -191,10 +191,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
                                 
                                 //イメージピッカーを閉じる
                                 [(UIViewController *)weakSelf.delegate dismissViewControllerAnimated:YES completion:^{
+                                    [weakSelf dismissHUDForce];
+                                    
                                     //デリゲート通知
                                     [weakSelf.delegate FZZImagePickerKit:weakSelf image:image status:FZZImagePickerStatusSuccess];
-                                    
-                                    [weakSelf dismissHUDForce];
                                 }];
                             }];
     }else{
@@ -211,10 +211,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
         }
         //イメージピッカーを閉じる
         [(UIViewController *)weakSelf.delegate dismissViewControllerAnimated:YES completion:^{
+            [weakSelf dismissHUDForce];
+            
             //デリゲート通知
             [weakSelf.delegate FZZImagePickerKit:weakSelf image:originalImage status:FZZImagePickerStatusSuccess];
-            
-            [weakSelf dismissHUDForce];
         }];
     }
 }
