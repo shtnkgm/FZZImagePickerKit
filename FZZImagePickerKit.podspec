@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "FZZImagePickerKit"
-s.version      = "0.0.9"
+s.version      = "0.0.10"
 s.summary      = "イメージピッカーをかんたんに作成"
 s.homepage     = "http://shtnkgm.github.io/"
 s.license      = { :type => "MIT", :file => "LICENSE.txt" }

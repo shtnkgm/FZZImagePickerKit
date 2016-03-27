@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "FZZImagePickerKit.h"
 
 @interface ViewController ()
+
+@property(nonatomic, strong) FZZImagePickerKit *imagePickerKit;
 
 @end
 
@@ -17,6 +20,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    self.imagePickerKit = [FZZImagePickerKit new];
+    [self.imagePickerKit openAlbumWithIsSquare:NO
+                                      delegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
