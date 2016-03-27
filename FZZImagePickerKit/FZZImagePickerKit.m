@@ -37,17 +37,15 @@
     return self;
 }
 
-- (void)openCamera{
+- (void)openCameraWithIsSquare:(BOOL)isSquare
+                      delegate:(id)delegate{
+    self.isSquare = isSquare;
+    self.delegate = delegate;
+    
     //カメラ有無チェック
     if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        [self showErrorHUDForce:[@"This device has no camera." localized]];
         
-        if([NSThread isMainThread]){
-            [SVProgressHUD showErrorWithStatus:[@"This device has no camera." localized]];
-        }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [SVProgressHUD showErrorWithStatus:[@"This device has no camera." localized]];
-            });
-        }
         [_delegate FZZImagePickerKit:self image:nil status:FZZImagePickerStatusFailForNoCamera];
         return;
     }
@@ -62,7 +60,11 @@
     [self openImagePicker:UIImagePickerControllerSourceTypeCamera];
 }
 
-- (void)openAlbum{
+- (void)openAlbumWithIsSquare:(BOOL)isSquare
+                     delegate:(id)delegate{
+    self.isSquare = isSquare;
+    self.delegate = delegate;
+    
     //アクセス権チェック
     if(![FZZImagePickerKit canAccessToPhoto]){
         [self showDialogForPhotoAccessibility];
@@ -140,13 +142,7 @@
 }
 
 - (void)openImagePicker:(int)sourceType {
-    if([NSThread isMainThread]){
-        [SVProgressHUD show];
-    }else{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [SVProgressHUD show];
-        });
-    }
+    [self showHUDForce];
     
     //イメージピッカーの設定
     _picker = [UIImagePickerController new];
@@ -155,23 +151,25 @@
     _picker.sourceType = sourceType;//ソースタイプを選択
     
     //イメージピッカーを表示する
+    __weak typeof(self) weakSelf = self;
     [(UIViewController *)_delegate presentViewController:_picker animated:YES completion:^{
-        if([NSThread isMainThread]){
-            [SVProgressHUD dismiss];
-        }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [SVProgressHUD dismiss];
-            });
-        }
+        [weakSelf dismissHUDForce];
     }];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    [_delegate FZZImagePickerKit:self image:nil status:FZZImagePickerStatusCancel];;
+    __weak typeof(self) weakSelf = self;
+    
+    //イメージピッカーを閉じる
+    [(UIViewController *)weakSelf.delegate dismissViewControllerAnimated:YES completion:^{
+        [weakSelf.delegate FZZImagePickerKit:weakSelf image:nil status:FZZImagePickerStatusCancel];
+    }];
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    [self showHUDForce];
+    
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     
     __weak typeof(self) weakSelf = self;
@@ -191,8 +189,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
                                     CGImageRelease(imageRef);
                                 }
                                 
-                                //デリゲート通知
-                                [weakSelf.delegate FZZImagePickerKit:weakSelf image:image status:FZZImagePickerStatusSuccess];
+                                //イメージピッカーを閉じる
+                                [(UIViewController *)weakSelf.delegate dismissViewControllerAnimated:YES completion:^{
+                                    //デリゲート通知
+                                    [weakSelf.delegate FZZImagePickerKit:weakSelf image:image status:FZZImagePickerStatusSuccess];
+                                    
+                                    [weakSelf dismissHUDForce];
+                                }];
                             }];
     }else{
         //originalImageが取得できた場合
@@ -206,9 +209,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
             originalImage = [UIImage imageWithCGImage:imageRef];
             CGImageRelease(imageRef);
         }
-        
-        //デリゲート通知
-        [_delegate FZZImagePickerKit:self image:originalImage status:FZZImagePickerStatusSuccess];
+        //イメージピッカーを閉じる
+        [(UIViewController *)weakSelf.delegate dismissViewControllerAnimated:YES completion:^{
+            //デリゲート通知
+            [weakSelf.delegate FZZImagePickerKit:weakSelf image:originalImage status:FZZImagePickerStatusSuccess];
+            
+            [weakSelf dismissHUDForce];
+        }];
     }
 }
 
@@ -232,13 +239,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
         UIImage* img = [UIImage imageWithData:data];
         completion(img);
     } failureBlock:^(NSError *err) {
-        if([NSThread isMainThread]){
-            [SVProgressHUD showErrorWithStatus:nil];
-        }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [SVProgressHUD showErrorWithStatus:nil];
-            });
-        }
+        [weakSelf showErrorHUDForce:err.description];
+        
+        //デリゲート通知
         [weakSelf.delegate FZZImagePickerKit:weakSelf image:nil status:FZZImagePickerStatusCancelForALAssetsLibrary];
     }];
 }
@@ -285,5 +288,36 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     }
     return YES;
 }
+
+- (void)dismissHUDForce{
+    if([NSThread isMainThread]){
+        [SVProgressHUD dismiss];
+    }else{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
+    }
+}
+
+- (void)showHUDForce{
+    if([NSThread isMainThread]){
+        [SVProgressHUD show];
+    }else{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD show];
+        });
+    }
+}
+
+- (void)showErrorHUDForce:(NSString *)message{
+    if([NSThread isMainThread]){
+        [SVProgressHUD showErrorWithStatus:message];
+    }else{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD showErrorWithStatus:message];
+        });
+    }
+}
+
 
 @end

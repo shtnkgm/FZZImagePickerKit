@@ -25,8 +25,10 @@ typedef enum : NSInteger{
 @property (nonatomic, assign) BOOL isSquare;
 @property (nonatomic, weak) id<FZZImagePickerKitDelegate> delegate;
 
-- (void)openCamera;
-- (void)openAlbum;
+- (void)openCameraWithIsSquare:(BOOL)isSquare
+                    delegate:(id)delegate;
+- (void)openAlbumWithIsSquare:(BOOL)isSquare
+                   delegate:(id)delegate;
 
 + (BOOL)canAccessToPhoto;
 + (BOOL)canAccessToCamera;
