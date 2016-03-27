@@ -133,9 +133,13 @@
 }
 
 - (void)openImagePicker:(int)sourceType {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    if([NSThread isMainThread]){
         [SVProgressHUD show];
-    });
+    }else{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD show];
+        });
+    }
     
     //イメージピッカーの設定
     _picker = [UIImagePickerController new];
