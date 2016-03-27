@@ -152,7 +152,7 @@
     
     //イメージピッカーを表示する
     __weak typeof(self) weakSelf = self;
-    [(UIViewController *)_delegate presentViewController:_picker animated:YES completion:^{
+    [(UIViewController *)self.delegate presentViewController:_picker animated:YES completion:^{
         [weakSelf dismissHUDForce];
     }];
 }
@@ -161,7 +161,7 @@
     __weak typeof(self) weakSelf = self;
     
     //イメージピッカーを閉じる
-    [(UIViewController *)weakSelf.delegate dismissViewControllerAnimated:YES completion:^{
+    [(UIViewController *)self.delegate dismissViewControllerAnimated:YES completion:^{
         [weakSelf.delegate FZZImagePickerKit:weakSelf image:nil status:FZZImagePickerStatusCancel];
     }];
 }
@@ -210,7 +210,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
             CGImageRelease(imageRef);
         }
         //イメージピッカーを閉じる
-        [(UIViewController *)weakSelf.delegate dismissViewControllerAnimated:YES completion:^{
+        [(UIViewController *)self.delegate dismissViewControllerAnimated:YES completion:^{
             [weakSelf dismissHUDForce];
             
             //デリゲート通知
