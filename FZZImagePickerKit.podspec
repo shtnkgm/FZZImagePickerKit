@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "FZZImagePickerKit"
-s.version      = "0.0.10"
+s.version      = "0.0.11"
 s.summary      = "イメージピッカーをかんたんに作成"
 s.homepage     = "http://shtnkgm.github.io/"
 s.license      = { :type => "MIT", :file => "LICENSE.txt" }
@@ -11,7 +11,7 @@ s.requires_arc = true
 s.source       = { :git => "https://shtnkgm@bitbucket.org/shtnkgm/fzzimagepickerkit.git", :tag => s.version }
 s.source_files = "FZZImagePickerKit/FZZ*.{h,m}", "FZZImagePickerKit/NSString+FZZImagePickerKitLocalized.{h,m}"
 # s.resources    = ["FZZImagePickerKit/*.{png}"]
-s.resource_bundles = { 'FZZImagePickerKit' => ["FZZImagePickerKit/*.lproj"]}
+s.resource_bundles = { 'FZZImagePickerKit' => ["FZZImagePickerKit/*.lproj/*.strings"]}
 s.framework  = 'Foundation', 'UIKit', 'AssetsLibrary', 'AVFoundation'
 s.dependency 'SVProgressHUD'
 
