@@ -33,8 +33,6 @@
 		C36069EE1C8C6FEF0046D78D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C36069F41C8C77910046D78D /* FZZImagePickerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZZImagePickerKit.h; sourceTree = "<group>"; };
 		C36069F51C8C77910046D78D /* FZZImagePickerKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZZImagePickerKit.m; sourceTree = "<group>"; };
-		C36069F71C8C78A50046D78D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
-		C36069F81C8C78A50046D78D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C36069F91C8C78C00046D78D /* NSString+FZZImagePickerKitLocalized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FZZImagePickerKitLocalized.h"; sourceTree = "<group>"; };
 		C36069FA1C8C78C00046D78D /* NSString+FZZImagePickerKitLocalized.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FZZImagePickerKitLocalized.m"; sourceTree = "<group>"; };
 		C3606A011C8C79530046D78D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/FZZImagePickerKitLocalizable.strings; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				C36069E71C8C6FEF0046D78D /* Base */,
-				C36069F71C8C78A50046D78D /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -261,7 +258,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				C36069EC1C8C6FEF0046D78D /* Base */,
-				C36069F81C8C78A50046D78D /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
