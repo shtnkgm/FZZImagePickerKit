@@ -16,8 +16,10 @@
     NSBundle *bundle;
     
     if (bundleURL) {
+        NSLog(@"Localize:%@",localizedFileName);
         bundle = [NSBundle bundleWithURL:bundleURL];
     } else {
+        NSLog(@"Localize:mainBundle");
         bundle = [NSBundle mainBundle];
     }
     
