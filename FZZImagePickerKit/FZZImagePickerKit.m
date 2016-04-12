@@ -44,7 +44,7 @@
     
     //カメラ有無チェック
     if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        [self showErrorHUDForce:[@"This device has no camera." localized]];
+        [self showErrorHUDForce:[@"This device has no camera." FZZImagePickerKitLocalized]];
         
         [_delegate FZZImagePickerKit:self image:nil status:FZZImagePickerStatusFailForNoCamera];
         return;
@@ -77,10 +77,10 @@
 }
 
 - (void)showDialogForCameraAccessibility{
-    NSString *title = [NSString stringWithFormat:[@"%@ does not have access to your camera." localized],_appName];
+    NSString *title = [NSString stringWithFormat:[@"%@ does not have access to your camera." FZZImagePickerKitLocalized],_appName];
     NSString *message = [NSString stringWithFormat:@"%@%@",
-                         [@"Please enable access to your camera in " localized],
-                         [NSString stringWithFormat:[@"iOS Settings > %@ > Privacy > Camera" localized],_appName]];
+                         [@"Please enable access to your camera in " FZZImagePickerKitLocalized],
+                         [NSString stringWithFormat:[@"iOS Settings > %@ > Privacy > Camera" FZZImagePickerKitLocalized],_appName]];
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
@@ -92,7 +92,7 @@
     
         [alertController addAction:defaultAction];
     
-    UIAlertAction* settingAction = [UIAlertAction actionWithTitle:[@"Open Settings" localized] style:UIAlertActionStyleDefault
+    UIAlertAction* settingAction = [UIAlertAction actionWithTitle:[@"Open Settings" FZZImagePickerKitLocalized] style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {
                                                               //設定画面を開く
                                                               NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
@@ -109,10 +109,10 @@
 }
 
 - (void)showDialogForPhotoAccessibility{
-    NSString *title = [NSString stringWithFormat:[@"%@ does not have access to your photos." localized],_appName];
+    NSString *title = [NSString stringWithFormat:[@"%@ does not have access to your photos." FZZImagePickerKitLocalized],_appName];
     NSString *message = [NSString stringWithFormat:@"%@%@",
-                         [@"Please enable access to your photos in " localized],
-                         [NSString stringWithFormat:[@"iOS Settings > %@ > Privacy > Photos" localized],_appName]];
+                         [@"Please enable access to your photos in " FZZImagePickerKitLocalized],
+                         [NSString stringWithFormat:[@"iOS Settings > %@ > Privacy > Photos" FZZImagePickerKitLocalized],_appName]];
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
@@ -125,7 +125,7 @@
     
     [alertController addAction:defaultAction];
     
-    UIAlertAction* settingAction = [UIAlertAction actionWithTitle:[@"Open Settings" localized] style:UIAlertActionStyleDefault
+    UIAlertAction* settingAction = [UIAlertAction actionWithTitle:[@"Open Settings" FZZImagePickerKitLocalized] style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {
                                                               //設定画面を開く
                                                               NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];

@@ -10,6 +10,6 @@
 
 @interface NSString (FZZImagePickerKitLocalized)
 
-- (instancetype)localized;
+- (instancetype)FZZImagePickerKitLocalized;
 
 @end
