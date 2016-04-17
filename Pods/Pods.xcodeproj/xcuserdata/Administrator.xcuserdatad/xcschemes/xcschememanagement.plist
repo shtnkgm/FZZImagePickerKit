@@ -9,7 +9,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RMUniversalAlert.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UIActionSheet+Blocks.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UIAlertController+Blocks.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UIAlertView+Blocks.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>200E616D6474F5D296B069EFF03F629B</key>
+		<key>726A6D0B57DFE93FEB0A601F7850300F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F41DDB6E5D102458002E5B4A9ED32DB7</key>
+		<key>840E3ABDFD2F68EBDCEF3214A95E7A36</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89B53B55E02699E925A30F352ACCB32F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8AF2C18741DFC7117029DB3061079909</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E93B5D13362A4F59CCFA565D45704B4F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1F026D55B67CAFA0005C3FC959D50F5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

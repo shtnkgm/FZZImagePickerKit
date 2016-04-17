@@ -10,10 +10,8 @@
 "Open Settings" = "設定画面を開く";
 "This device has no camera." = "この機種にはカメラがありません";
 
-"%@ does not have access to your photos." = "「設定」アプリでの設定のため、%@は写真にアクセスできません";
-"Please enable access to your photos in " = "以下の操作により設定を変更できます。";
-"iOS Settings > %@ > Privacy > Photos" = "ホーム画面から「設定」アプリを起動 > %@を選択 > プライバシーを選択 > 写真";
+"This app can't access to your photos." = "写真にアクセスできません";
+"Please enable access to your photos in Settings." = "設定画面で「写真」の設定を\n変更してください。";
 
-"%@ does not have access to your camera." = "「設定」アプリでの設定のため、%@はカメラにアクセスできません";
-"Please enable access to your camera in " = "以下の操作により設定を変更できます。";
-"iOS Settings > %@ > Privacy > Camera" = "ホーム画面から「設定」アプリを起動 > %@を選択 > プライバシーを選択 > カメラ";
+"This app can't access to your camera." = "カメラにアクセスできません";
+"Please enable access to your camera in Settings." = "設定画面で「カメラ」の設定を\n変更してください。";

@@ -1,10 +1,24 @@
 PODS:
-  - SVProgressHUD (HEAD based on 2.0)
+  - RMUniversalAlert (0.7):
+    - RMUniversalAlert/Core (= 0.7)
+  - RMUniversalAlert/Core (0.7):
+    - UIActionSheet+Blocks (>= 0.9)
+    - UIAlertController+Blocks (>= 0.9)
+    - UIAlertView+Blocks (>= 0.9)
+  - SVProgressHUD (HEAD based on 2.0.3)
+  - UIActionSheet+Blocks (0.9)
+  - UIAlertController+Blocks (0.9)
+  - UIAlertView+Blocks (0.9)
 
 DEPENDENCIES:
+  - RMUniversalAlert
   - SVProgressHUD (HEAD)
 
 SPEC CHECKSUMS:
-  SVProgressHUD: e9e7c893686a20da55a28015ed384d9425e15479
+  RMUniversalAlert: bce2ca406c24065b76665725c83e48006e8f65f8
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
+  UIAlertController+Blocks: b48c673ff60726da468b32ab21bbc7683512d45b
+  UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
 
 COCOAPODS: 0.39.0

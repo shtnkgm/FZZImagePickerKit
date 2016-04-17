@@ -8,7 +8,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oYvxuHBUCs/Z5fo1QSjYKNyGPi0=
+			nlLKqGTi+S8wCKttIuHS6VeTTu0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -26,7 +26,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mOCH3OyAN1t5Gr8XIsmPhiojeFU=
+			Ey9geE0amRKygxDZpwOkYSSLcPI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -35,7 +35,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YDcFA2u+2+oyIV7LpMeqKxNhVKY=
+			qMwg6cupMjcbyoo6to0BMM7aPJM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -53,7 +53,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jVGbJGf++zrCIbQg2bbbCslWGUA=
+			D0aP9SfKsLLXGf2aO6+YofswzCI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -131,25 +131,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YkKTUdJ02UWa+0dJHDqevOgy8/E=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>ja.lproj/LaunchScreen.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			rcg7GeeTSRscbqD9i0bNnzLlkvw=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>ja.lproj/Main.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			rcg7GeeTSRscbqD9i0bNnzLlkvw=
+			MgHkwE/ceN6VkHd1vNe95dtnHD0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -161,11 +143,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oYvxuHBUCs/Z5fo1QSjYKNyGPi0=
+			nlLKqGTi+S8wCKttIuHS6VeTTu0=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZiWa6KcyXbj+XpSbTKBTIAMpqhxDNYp7wQ8CGVJLcpA=
+			igCOlnk7HkIuxDvOitctfkI7jaNlyYaR1y33Gcta2uw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -187,11 +169,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mOCH3OyAN1t5Gr8XIsmPhiojeFU=
+			Ey9geE0amRKygxDZpwOkYSSLcPI=
 			</data>
 			<key>hash2</key>
 			<data>
-			11qaV+Rt596XgwzcKNMnwLo4ajWB5JpkNsJaGd6m9pQ=
+			R/XxgTMb9eIcK//zKNANYcF6DoYW3Ad3Z/mfGDOo1VY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -200,11 +182,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YDcFA2u+2+oyIV7LpMeqKxNhVKY=
+			qMwg6cupMjcbyoo6to0BMM7aPJM=
 			</data>
 			<key>hash2</key>
 			<data>
-			qS4wSdccYErMYb08TJDkHFsjARpHGzbQj20yN1ey/uU=
+			JOfijFzG+8lHToD3aCJNEWMUS9LUEOJrVHBseoSdb+0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -226,11 +208,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jVGbJGf++zrCIbQg2bbbCslWGUA=
+			D0aP9SfKsLLXGf2aO6+YofswzCI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Lw1v20802l6GjIN99A8DeoSMTxyEUfo3ZgJxwn8G1ZM=
+			iIUA3NZE0XyekEWp4A4VHpgEfVVGdaw6zjlSAUlZoxo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -395,37 +377,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YkKTUdJ02UWa+0dJHDqevOgy8/E=
+			MgHkwE/ceN6VkHd1vNe95dtnHD0=
 			</data>
 			<key>hash2</key>
 			<data>
-			HYATnsnXO95/hkDIPdKudql+vpojwBYLOt0tuZguhnw=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>ja.lproj/LaunchScreen.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			rcg7GeeTSRscbqD9i0bNnzLlkvw=
-			</data>
-			<key>hash2</key>
-			<data>
-			AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>ja.lproj/Main.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			rcg7GeeTSRscbqD9i0bNnzLlkvw=
-			</data>
-			<key>hash2</key>
-			<data>
-			AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs=
+			/wx9PKfSETcPFBodo7RXtKWiYqqbSj3JpMlaDHxlyA0=
 			</data>
 			<key>optional</key>
 			<true/>

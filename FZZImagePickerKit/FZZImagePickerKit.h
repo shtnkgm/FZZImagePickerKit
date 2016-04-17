@@ -27,6 +27,7 @@ typedef enum : NSInteger{
 
 - (void)openCameraWithIsSquare:(BOOL)isSquare
                     delegate:(id)delegate;
+
 - (void)openAlbumWithIsSquare:(BOOL)isSquare
                    delegate:(id)delegate;
 

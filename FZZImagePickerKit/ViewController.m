@@ -10,6 +10,7 @@
 #import "FZZImagePickerKit.h"
 
 @interface ViewController ()
+<FZZImagePickerKitDelegate>
 
 @property(nonatomic, strong) FZZImagePickerKit *imagePickerKit;
 
@@ -26,13 +27,21 @@
     [super viewDidAppear:animated];
     
     self.imagePickerKit = [FZZImagePickerKit new];
-    [self.imagePickerKit openAlbumWithIsSquare:NO
+    
+//    [self.imagePickerKit openAlbumWithIsSquare:NO
+//                                      delegate:self];
+
+    [self.imagePickerKit openCameraWithIsSquare:NO
                                       delegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)FZZImagePickerKit:(FZZImagePickerKit *)imagePickerKit image:(UIImage *)image status:(FZZImagePickerStatus)status{
+    
 }
 
 @end

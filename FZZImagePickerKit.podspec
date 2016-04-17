@@ -14,5 +14,6 @@ s.source_files = "FZZImagePickerKit/FZZ*.{h,m}", "FZZImagePickerKit/NSString+FZZ
 s.resource_bundles = { 'FZZImagePickerKit' => ["FZZImagePickerKit/*.lproj"]}
 s.framework  = 'Foundation', 'UIKit', 'AssetsLibrary', 'AVFoundation'
 s.dependency 'SVProgressHUD'
+s.dependency 'RMUniversalAlert'
 
 end

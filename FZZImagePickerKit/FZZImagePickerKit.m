@@ -7,17 +7,23 @@
 //
 
 #import "FZZImagePickerKit.h"
-#import "SVProgressHUD.h"
+
+//Localize
 #import "NSString+FZZImagePickerKitLocalized.h"
+
+//iOS SDK
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <AVFoundation/AVFoundation.h>
+
+//OSS
+#import "SVProgressHUD.h"
+#import "RMUniversalAlert.h"
 
 @interface FZZImagePickerKit()
 <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UIImagePickerController *picker;
 @property (nonatomic, strong) ALAssetsLibrary *assetLibrary;
-@property (nonatomic,copy) NSString *appName;
 
 @end
 
@@ -32,7 +38,6 @@
     self = [super init];
     if (self) {
         _isSquare = NO;
-        _appName = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleDisplayName"];
     }
     return self;
 }
@@ -77,68 +82,35 @@
 }
 
 - (void)showDialogForCameraAccessibility{
-    NSString *title = [NSString stringWithFormat:[@"%@ does not have access to your camera." FZZImagePickerKitLocalized],_appName];
-    NSString *message = [NSString stringWithFormat:@"%@%@",
-                         [@"Please enable access to your camera in " FZZImagePickerKitLocalized],
-                         [NSString stringWithFormat:[@"iOS Settings > %@ > Privacy > Camera" FZZImagePickerKitLocalized],_appName]];
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                             message:message
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {
-                                                          //何もしない
-                                                          }];
-    
-        [alertController addAction:defaultAction];
-    
-    UIAlertAction* settingAction = [UIAlertAction actionWithTitle:[@"Open Settings" FZZImagePickerKitLocalized] style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {
-                                                              //設定画面を開く
-                                                              NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                                                              [[UIApplication sharedApplication] openURL:url];
-                                                          }];
-    
-    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]]){
-        [alertController addAction:settingAction];
-    }
-    
-    [(UIViewController *)_delegate presentViewController:alertController
-                                                animated:YES
-                                              completion:nil];
+    [RMUniversalAlert showAlertInViewController:(UIViewController *)_delegate
+                                      withTitle:[@"This app can't access to your camera." FZZImagePickerKitLocalized]
+                                        message:[@"Please enable access to your camera in Settings." FZZImagePickerKitLocalized]
+                              cancelButtonTitle:[@"OK" FZZImagePickerKitLocalized]
+                         destructiveButtonTitle:nil
+                              otherButtonTitles:@[[@"Open Settings" FZZImagePickerKitLocalized]]
+                                       tapBlock:^(RMUniversalAlert *alert, NSInteger buttonIndex){
+                                           if(buttonIndex == alert.firstOtherButtonIndex){
+                                               //設定画面を開く
+                                               NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                                               [[UIApplication sharedApplication] openURL:url];
+                                           }
+                                       }];
 }
 
 - (void)showDialogForPhotoAccessibility{
-    NSString *title = [NSString stringWithFormat:[@"%@ does not have access to your photos." FZZImagePickerKitLocalized],_appName];
-    NSString *message = [NSString stringWithFormat:@"%@%@",
-                         [@"Please enable access to your photos in " FZZImagePickerKitLocalized],
-                         [NSString stringWithFormat:[@"iOS Settings > %@ > Privacy > Photos" FZZImagePickerKitLocalized],_appName]];
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                             message:message
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {
-                                                          //何もしない
-                                                          }];
-    
-    [alertController addAction:defaultAction];
-    
-    UIAlertAction* settingAction = [UIAlertAction actionWithTitle:[@"Open Settings" FZZImagePickerKitLocalized] style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {
-                                                              //設定画面を開く
-                                                              NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                                                              [[UIApplication sharedApplication] openURL:url];
-                                                          }];
-    
-    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]]){
-        [alertController addAction:settingAction];
-    }
-    
-    [(UIViewController *)_delegate presentViewController:alertController
-                                                animated:YES
-                                              completion:nil];
+    [RMUniversalAlert showAlertInViewController:(UIViewController *)_delegate
+                                      withTitle:[@"This app can't access to your photos." FZZImagePickerKitLocalized]
+                                        message:[@"Please enable access to your photos in Settings." FZZImagePickerKitLocalized]
+                              cancelButtonTitle:[@"OK" FZZImagePickerKitLocalized]
+                         destructiveButtonTitle:nil
+                              otherButtonTitles:@[[@"Open Settings" FZZImagePickerKitLocalized]]
+                                       tapBlock:^(RMUniversalAlert *alert, NSInteger buttonIndex){
+                                           if(buttonIndex == alert.firstOtherButtonIndex){
+                                               //設定画面を開く
+                                               NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                                               [[UIApplication sharedApplication] openURL:url];
+                                           }
+                                       }];
 }
 
 - (void)openImagePicker:(int)sourceType {
