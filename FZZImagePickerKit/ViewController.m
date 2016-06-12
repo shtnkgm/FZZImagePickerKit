@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -28,8 +29,6 @@
     
     self.imagePickerKit = [FZZImagePickerKit new];
     
-//    [self.imagePickerKit openAlbumWithIsSquare:NO
-//                                      delegate:self];
 
     [self.imagePickerKit openCameraWithIsSquare:NO
                                       delegate:self];
