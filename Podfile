@@ -1,5 +1,8 @@
 platform :ios,'8.0'
-inhibit_all_warnings!
 
-pod 'SVProgressHUD', :head
+target 'FZZImagePickerKit' do
+
+pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
 pod 'RMUniversalAlert'
+
+end
