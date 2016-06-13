@@ -28,6 +28,12 @@
 
 @implementation FZZImagePickerKit
 
+-(void)navigationController:(UINavigationController *)navigationController
+     willShowViewController:(UIViewController *)viewController
+                   animated:(BOOL)animated{
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+}
+
 - (BOOL)prefersStatusBarHidden{
     return YES;
 }
