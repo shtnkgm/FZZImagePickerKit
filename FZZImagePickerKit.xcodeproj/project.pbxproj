@@ -15,13 +15,9 @@
 		C36069F61C8C77910046D78D /* FZZImagePickerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C36069F51C8C77910046D78D /* FZZImagePickerKit.m */; };
 		C36069FB1C8C78C00046D78D /* NSString+FZZImagePickerKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = C36069FA1C8C78C00046D78D /* NSString+FZZImagePickerKitLocalized.m */; };
 		C3606A001C8C79530046D78D /* FZZImagePickerKitLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3606A021C8C79530046D78D /* FZZImagePickerKitLocalizable.strings */; };
-		D6E2E4D5857D6FCF5E9CF7D0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F44F7EFBC6A4CDF1C8832E0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		08AE6BC82D97DF919B1821BC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		0F44F7EFBC6A4CDF1C8832E0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		19B993A35899559C74E3E010 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C36069DA1C8C6FEF0046D78D /* FZZImagePickerKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FZZImagePickerKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36069DE1C8C6FEF0046D78D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C36069E01C8C6FEF0046D78D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,37 +40,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6E2E4D5857D6FCF5E9CF7D0 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13273E6840C550BAD3414510 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				08AE6BC82D97DF919B1821BC /* Pods.debug.xcconfig */,
-				19B993A35899559C74E3E010 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		168BD9BD0D8BA07F98DB38CA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0F44F7EFBC6A4CDF1C8832E0 /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		C36069D11C8C6FEF0046D78D = {
 			isa = PBXGroup;
 			children = (
 				C36069DC1C8C6FEF0046D78D /* FZZImagePickerKit */,
 				C36069DB1C8C6FEF0046D78D /* Products */,
-				13273E6840C550BAD3414510 /* Pods */,
-				168BD9BD0D8BA07F98DB38CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,12 +97,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C36069F11C8C6FEF0046D78D /* Build configuration list for PBXNativeTarget "FZZImagePickerKit" */;
 			buildPhases = (
-				AAFA4F1F31069019555136E6 /* Check Pods Manifest.lock */,
 				C36069D61C8C6FEF0046D78D /* Sources */,
 				C36069D71C8C6FEF0046D78D /* Frameworks */,
 				C36069D81C8C6FEF0046D78D /* Resources */,
-				04C91BA07F76BA00D393479A /* Copy Pods Resources */,
-				3898FFF633E07416F6FAB02F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -181,54 +154,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		04C91BA07F76BA00D393479A /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3898FFF633E07416F6FAB02F /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AAFA4F1F31069019555136E6 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C36069D61C8C6FEF0046D78D /* Sources */ = {
@@ -356,7 +281,6 @@
 		};
 		C36069F21C8C6FEF0046D78D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08AE6BC82D97DF919B1821BC /* Pods.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = FZZImagePickerKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -367,7 +291,6 @@
 		};
 		C36069F31C8C6FEF0046D78D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19B993A35899559C74E3E010 /* Pods.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = FZZImagePickerKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -22,7 +22,6 @@
 @interface FZZImagePickerKit()
 <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
-@property (nonatomic, strong) UIImagePickerController *picker;
 @property (nonatomic, strong) ALAssetsLibrary *assetLibrary;
 
 @end
@@ -43,9 +42,11 @@
 }
 
 - (void)openCameraWithIsSquare:(BOOL)isSquare
+                 isFrontCamera:(BOOL)isFrontCamera
                       delegate:(id)delegate{
     self.isSquare = isSquare;
     self.delegate = delegate;
+    self.isFrontCamera = isFrontCamera;
     
     //カメラ有無チェック
     if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
@@ -121,6 +122,14 @@
     _picker.delegate = self;
     _picker.allowsEditing = _isSquare;
     _picker.sourceType = sourceType;//ソースタイプを選択
+    
+    if(_picker.sourceType == UIImagePickerControllerSourceTypeCamera){
+        if(self.isFrontCamera){
+            _picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+        }else{
+            _picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+        }
+    }
     
     //イメージピッカーを表示する
     __weak typeof(self) weakSelf = self;

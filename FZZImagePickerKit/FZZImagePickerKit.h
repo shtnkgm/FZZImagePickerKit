@@ -22,10 +22,14 @@ typedef enum : NSInteger{
 
 @interface FZZImagePickerKit : NSObject
 
+@property (nonatomic, strong) UIImagePickerController *picker;
 @property (nonatomic, assign) BOOL isSquare;
+@property (nonatomic, assign) BOOL isFrontCamera;
+
 @property (nonatomic, weak) id<FZZImagePickerKitDelegate> delegate;
 
 - (void)openCameraWithIsSquare:(BOOL)isSquare
+                 isFrontCamera:(BOOL)isFrontCamera
                     delegate:(id)delegate;
 
 - (void)openAlbumWithIsSquare:(BOOL)isSquare
