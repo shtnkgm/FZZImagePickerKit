@@ -28,10 +28,6 @@
     [super viewDidAppear:animated];
     
     self.imagePickerKit = [FZZImagePickerKit new];
-    
-
-    [self.imagePickerKit openCameraWithIsSquare:NO
-                                      delegate:self];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -11,6 +11,7 @@
 @implementation NSString (FZZImagePickerKitLocalized)
 
 - (instancetype)FZZImagePickerKitLocalized{
+    NSLog(@"%@:%s",self,__func__);
     NSString *localizedFileName = @"FZZImagePickerKitLocalizable";
     NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"FZZImagePickerKit" withExtension:@"bundle"];
     NSBundle *bundle;
