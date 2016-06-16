@@ -38,6 +38,7 @@ typedef enum : NSInteger{
 + (BOOL)canAccessToPhoto;
 + (BOOL)canAccessToCamera;
 
+- (void)showDialogForNoCamera;
 - (void)showDialogForPhotoAccessibility;
 - (void)showDialogForCameraAccessibility;
 

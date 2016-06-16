@@ -56,16 +56,15 @@
     
     //カメラ有無チェック
     if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        [self showErrorHUDForce:[@"This device has no camera." FZZImagePickerKitLocalized]];
-        
-        [_delegate FZZImagePickerKit:self image:nil status:FZZImagePickerStatusFailForNoCamera];
+        [self showDialogForNoCamera];
+        [self.delegate FZZImagePickerKit:self image:nil status:FZZImagePickerStatusFailForNoCamera];
         return;
     }
     
     //アクセス権チェック
     if(![FZZImagePickerKit canAccessToCamera]){
         [self showDialogForCameraAccessibility];
-        [_delegate FZZImagePickerKit:self image:nil status:FZZImagePickerStatusCancelForCameraAccessibility];
+        [self.delegate FZZImagePickerKit:self image:nil status:FZZImagePickerStatusCancelForCameraAccessibility];
         return;
     }
     
@@ -80,7 +79,7 @@
     //アクセス権チェック
     if(![FZZImagePickerKit canAccessToPhoto]){
         [self showDialogForPhotoAccessibility];
-        [_delegate FZZImagePickerKit:self image:nil status:FZZImagePickerStatusCancelForPhotoAccessibility];
+        [self.delegate FZZImagePickerKit:self image:nil status:FZZImagePickerStatusCancelForPhotoAccessibility];
         return;
     }
     
@@ -88,8 +87,12 @@
     
 }
 
+- (void)showDialogForNoCamera{
+    [self showErrorHUDForce:[@"This device has no camera." FZZImagePickerKitLocalized]];
+}
+
 - (void)showDialogForCameraAccessibility{
-    [RMUniversalAlert showAlertInViewController:(UIViewController *)_delegate
+    [RMUniversalAlert showAlertInViewController:(UIViewController *)self.delegate
                                       withTitle:[@"This app can't access to your camera." FZZImagePickerKitLocalized]
                                         message:[@"Please enable access to your camera in Settings." FZZImagePickerKitLocalized]
                               cancelButtonTitle:[@"OK" FZZImagePickerKitLocalized]
@@ -105,7 +108,7 @@
 }
 
 - (void)showDialogForPhotoAccessibility{
-    [RMUniversalAlert showAlertInViewController:(UIViewController *)_delegate
+    [RMUniversalAlert showAlertInViewController:(UIViewController *)self.delegate
                                       withTitle:[@"This app can't access to your photos." FZZImagePickerKitLocalized]
                                         message:[@"Please enable access to your photos in Settings." FZZImagePickerKitLocalized]
                               cancelButtonTitle:[@"OK" FZZImagePickerKitLocalized]
@@ -124,24 +127,21 @@
     //[self showHUDForce];
     
     //イメージピッカーの設定
-    _picker = [UIImagePickerController new];
-    _picker.delegate = self;
-    _picker.allowsEditing = _isSquare;
-    _picker.sourceType = sourceType;//ソースタイプを選択
+    self.picker = [UIImagePickerController new];
+    self.picker.delegate = self;
+    self.picker.allowsEditing = self.isSquare;
+    self.picker.sourceType = sourceType;//ソースタイプを選択
     
-    if(_picker.sourceType == UIImagePickerControllerSourceTypeCamera){
+    if(self.picker.sourceType == UIImagePickerControllerSourceTypeCamera){
         if(self.isFrontCamera){
-            _picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+            self.picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
         }else{
-            _picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+            self.picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
         }
     }
     
     //イメージピッカーを表示する
-    __weak typeof(self) weakSelf = self;
-    [(UIViewController *)self.delegate presentViewController:_picker animated:YES completion:^{
-        [weakSelf dismissHUDForce];
-    }];
+    [(UIViewController *)self.delegate presentViewController:self.picker animated:YES completion:nil];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
@@ -163,7 +163,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     if(!originalImage){
         //originalImageが取得できなかった場合
-        
         [self loadImageFromAssertByUrl:[info objectForKey:UIImagePickerControllerReferenceURL]
                             completion:^(UIImage* image){
                                 image = [weakSelf dontRotate:image];
@@ -186,10 +185,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
                             }];
     }else{
         //originalImageが取得できた場合
-        
         originalImage = [self dontRotate:originalImage];
         
-        if(_isSquare){
+        if(self.isSquare){
             CGRect originalRect;
             [info[UIImagePickerControllerCropRect] getValue:&originalRect];
             CGImageRef imageRef = CGImageCreateWithImageInRect([originalImage CGImage], originalRect);
@@ -253,6 +251,29 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     }
     
     return YES;
+}
+
+- (void)requestCamera{
+    NSString *mediaType = AVMediaTypeVideo;
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+    
+    if(authStatus != AVAuthorizationStatusNotDetermined){
+        return;
+    }
+    
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+        if (granted) {
+            // 許可された場合の処理
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // do something
+            });
+        } else {
+            // 許可してもらえない場合
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // do something
+            });
+        }
+    }];
 }
 
 + (BOOL)canAccessToCamera{
