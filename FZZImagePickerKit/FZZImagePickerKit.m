@@ -121,7 +121,7 @@
 }
 
 - (void)openImagePicker:(int)sourceType {
-    [self showHUDForce];
+    //[self showHUDForce];
     
     //イメージピッカーの設定
     _picker = [UIImagePickerController new];
