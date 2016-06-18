@@ -160,8 +160,6 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-    NSLog(@"1");
-    
     [FZZImagePickerKit showHUDForce];
     
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
@@ -169,7 +167,6 @@
     __weak typeof(self) weakSelf = self;
     
     if(!originalImage){
-        NSLog(@"2");
         //originalImageが取得できなかった場合
         [self loadImageFromAssertByUrl:[info objectForKey:UIImagePickerControllerReferenceURL]
                             completion:^(UIImage* image){
@@ -194,7 +191,6 @@
                                 }];
                             }];
     }else{
-        NSLog(@"3");
         //originalImageが取得できた場合
         originalImage = [FZZImagePickerKit dontRotate:originalImage];
         
@@ -207,7 +203,6 @@
         }
         //イメージピッカーを閉じる
         [(UIViewController *)self.delegate dismissViewControllerAnimated:YES completion:^{
-            NSLog(@"4");
             [FZZImagePickerKit dismissHUDForce];
             
             //デリゲート通知
