@@ -22,11 +22,11 @@ typedef enum : NSInteger{
 
 @interface FZZImagePickerKit : NSObject
 
-@property (nonatomic, strong) UIImagePickerController *picker;
-@property (nonatomic, assign) BOOL isSquare;
-@property (nonatomic, assign) BOOL isFrontCamera;
+@property (strong, nonatomic) UIImagePickerController *picker;
+@property (assign, nonatomic) BOOL isSquare;
+@property (assign, nonatomic) BOOL isFrontCamera;
 
-@property (nonatomic, weak) id<FZZImagePickerKitDelegate> delegate;
+@property (weak, nonatomic) id<FZZImagePickerKitDelegate> delegate;
 
 - (void)openCameraWithIsSquare:(BOOL)isSquare
                  isFrontCamera:(BOOL)isFrontCamera
@@ -35,12 +35,14 @@ typedef enum : NSInteger{
 - (void)openAlbumWithIsSquare:(BOOL)isSquare
                    delegate:(id)delegate;
 
++ (void)openSettingApp;
+
 + (BOOL)canAccessToPhoto;
 + (BOOL)canAccessToCamera;
 
-- (void)showDialogForNoCamera;
-- (void)showDialogForPhotoAccessibility;
-- (void)showDialogForCameraAccessibility;
++ (void)showDialogForNoCamera;
++ (void)showDialogForCameraAccessibilityInViewController:(UIViewController *)viewController;
++ (void)showDialogForPhotoAccessibilityInViewController:(UIViewController *)viewController;
 
 @end
 

@@ -16,8 +16,8 @@
 #import <AVFoundation/AVFoundation.h>
 
 //OSS
-#import "SVProgressHUD.h"
-#import "RMUniversalAlert.h"
+#import <SVProgressHUD.h>
+#import <RMUniversalAlert.h>
 
 @interface FZZImagePickerKit()
 <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
@@ -43,6 +43,7 @@
     self = [super init];
     if (self) {
         _isSquare = NO;
+        _isFrontCamera = NO;
     }
     return self;
 }
@@ -56,14 +57,14 @@
     
     //カメラ有無チェック
     if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        [self showDialogForNoCamera];
+        [FZZImagePickerKit showDialogForNoCamera];
         [self.delegate FZZImagePickerKit:self image:nil status:FZZImagePickerStatusFailForNoCamera];
         return;
     }
     
     //アクセス権チェック
     if(![FZZImagePickerKit canAccessToCamera]){
-        [self showDialogForCameraAccessibility];
+        [FZZImagePickerKit showDialogForCameraAccessibilityInViewController:(UIViewController *)self.delegate];
         [self.delegate FZZImagePickerKit:self image:nil status:FZZImagePickerStatusCancelForCameraAccessibility];
         return;
     }
@@ -78,7 +79,7 @@
     
     //アクセス権チェック
     if(![FZZImagePickerKit canAccessToPhoto]){
-        [self showDialogForPhotoAccessibility];
+        [FZZImagePickerKit showDialogForPhotoAccessibilityInViewController:(UIViewController *)self.delegate];
         [self.delegate FZZImagePickerKit:self image:nil status:FZZImagePickerStatusCancelForPhotoAccessibility];
         return;
     }
@@ -87,12 +88,12 @@
     
 }
 
-- (void)showDialogForNoCamera{
-    [self showErrorHUDForce:[@"This device has no camera." FZZImagePickerKitLocalized]];
++ (void)showDialogForNoCamera{
+    [FZZImagePickerKit showErrorHUDForce:[@"This device has no camera." FZZImagePickerKitLocalized]];
 }
 
-- (void)showDialogForCameraAccessibility{
-    [RMUniversalAlert showAlertInViewController:(UIViewController *)self.delegate
++ (void)showDialogForCameraAccessibilityInViewController:(UIViewController *)viewController{
+    [RMUniversalAlert showAlertInViewController:viewController
                                       withTitle:[@"This app can't access to your camera." FZZImagePickerKitLocalized]
                                         message:[@"Please enable access to your camera in Settings." FZZImagePickerKitLocalized]
                               cancelButtonTitle:[@"OK" FZZImagePickerKitLocalized]
@@ -100,15 +101,13 @@
                               otherButtonTitles:@[[@"Open Settings" FZZImagePickerKitLocalized]]
                                        tapBlock:^(RMUniversalAlert *alert, NSInteger buttonIndex){
                                            if(buttonIndex == alert.firstOtherButtonIndex){
-                                               //設定画面を開く
-                                               NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                                               [[UIApplication sharedApplication] openURL:url];
+                                               [FZZImagePickerKit openSettingApp];
                                            }
                                        }];
 }
 
-- (void)showDialogForPhotoAccessibility{
-    [RMUniversalAlert showAlertInViewController:(UIViewController *)self.delegate
++ (void)showDialogForPhotoAccessibilityInViewController:(UIViewController *)viewController{
+    [RMUniversalAlert showAlertInViewController:viewController
                                       withTitle:[@"This app can't access to your photos." FZZImagePickerKitLocalized]
                                         message:[@"Please enable access to your photos in Settings." FZZImagePickerKitLocalized]
                               cancelButtonTitle:[@"OK" FZZImagePickerKitLocalized]
@@ -116,22 +115,25 @@
                               otherButtonTitles:@[[@"Open Settings" FZZImagePickerKitLocalized]]
                                        tapBlock:^(RMUniversalAlert *alert, NSInteger buttonIndex){
                                            if(buttonIndex == alert.firstOtherButtonIndex){
-                                               //設定画面を開く
-                                               NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                                               [[UIApplication sharedApplication] openURL:url];
+                                               [FZZImagePickerKit openSettingApp];
                                            }
                                        }];
 }
 
++ (void)openSettingApp{
+    //設定画面を開く
+    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 - (void)openImagePicker:(int)sourceType {
-    //[self showHUDForce];
-    
     //イメージピッカーの設定
     self.picker = [UIImagePickerController new];
     self.picker.delegate = self;
     self.picker.allowsEditing = self.isSquare;
     self.picker.sourceType = sourceType;//ソースタイプを選択
     
+    //カメラの場合、向き（フロント/リア）も設定する
     if(self.picker.sourceType == UIImagePickerControllerSourceTypeCamera){
         if(self.isFrontCamera){
             self.picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
@@ -141,7 +143,9 @@
     }
     
     //イメージピッカーを表示する
-    [(UIViewController *)self.delegate presentViewController:self.picker animated:YES completion:nil];
+    [(UIViewController *)self.delegate presentViewController:self.picker
+                                                    animated:YES
+                                                  completion:nil];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
@@ -149,14 +153,16 @@
     
     //イメージピッカーを閉じる
     [(UIViewController *)self.delegate dismissViewControllerAnimated:YES completion:^{
-        [weakSelf.delegate FZZImagePickerKit:weakSelf image:nil status:FZZImagePickerStatusCancel];
+        [weakSelf.delegate FZZImagePickerKit:weakSelf
+                                       image:nil
+                                      status:FZZImagePickerStatusCancel];
     }];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     NSLog(@"1");
     
-    [self showHUDForce];
+    [FZZImagePickerKit showHUDForce];
     
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     
@@ -167,7 +173,7 @@
         //originalImageが取得できなかった場合
         [self loadImageFromAssertByUrl:[info objectForKey:UIImagePickerControllerReferenceURL]
                             completion:^(UIImage* image){
-                                image = [weakSelf dontRotate:image];
+                                image = [FZZImagePickerKit dontRotate:image];
                                 
                                 if(weakSelf.isSquare){
                                     CGRect originalRect;
@@ -179,16 +185,18 @@
                                 
                                 //イメージピッカーを閉じる
                                 [(UIViewController *)weakSelf.delegate dismissViewControllerAnimated:YES completion:^{
-                                    [weakSelf dismissHUDForce];
+                                    [FZZImagePickerKit dismissHUDForce];
                                     
                                     //デリゲート通知
-                                    [weakSelf.delegate FZZImagePickerKit:weakSelf image:image status:FZZImagePickerStatusSuccess];
+                                    [weakSelf.delegate FZZImagePickerKit:weakSelf
+                                                                   image:image
+                                                                  status:FZZImagePickerStatusSuccess];
                                 }];
                             }];
     }else{
         NSLog(@"3");
         //originalImageが取得できた場合
-        originalImage = [self dontRotate:originalImage];
+        originalImage = [FZZImagePickerKit dontRotate:originalImage];
         
         if(self.isSquare){
             CGRect originalRect;
@@ -200,7 +208,7 @@
         //イメージピッカーを閉じる
         [(UIViewController *)self.delegate dismissViewControllerAnimated:YES completion:^{
             NSLog(@"4");
-            [weakSelf dismissHUDForce];
+            [FZZImagePickerKit dismissHUDForce];
             
             //デリゲート通知
             [weakSelf.delegate FZZImagePickerKit:weakSelf image:originalImage status:FZZImagePickerStatusSuccess];
@@ -208,7 +216,7 @@
     }
 }
 
-- (UIImage *)dontRotate:(UIImage *)image{
++ (UIImage *)dontRotate:(UIImage *)image{
     UIGraphicsBeginImageContext(image.size);
     [image drawInRect:CGRectMake(0, 0, image.size.width,image.size.height)];
     UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
@@ -228,7 +236,7 @@
         UIImage* img = [UIImage imageWithData:data];
         completion(img);
     } failureBlock:^(NSError *err) {
-        [weakSelf showErrorHUDForce:err.description];
+        [FZZImagePickerKit showErrorHUDForce:err.description];
         
         //デリゲート通知
         [weakSelf.delegate FZZImagePickerKit:weakSelf image:nil status:FZZImagePickerStatusCancelForALAssetsLibrary];
@@ -257,7 +265,7 @@
     return YES;
 }
 
-- (void)requestCamera{
++ (void)requestCamera{
     NSString *mediaType = AVMediaTypeVideo;
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
     
@@ -301,7 +309,7 @@
     return YES;
 }
 
-- (void)dismissHUDForce{
++ (void)dismissHUDForce{
     if([NSThread isMainThread]){
         [SVProgressHUD dismiss];
     }else{
@@ -311,7 +319,7 @@
     }
 }
 
-- (void)showHUDForce{
++ (void)showHUDForce{
     if([NSThread isMainThread]){
         [SVProgressHUD show];
     }else{
@@ -321,7 +329,7 @@
     }
 }
 
-- (void)showErrorHUDForce:(NSString *)message{
++ (void)showErrorHUDForce:(NSString *)message{
     if([NSThread isMainThread]){
         [SVProgressHUD showErrorWithStatus:message];
     }else{
